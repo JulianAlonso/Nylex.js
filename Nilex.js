@@ -6,6 +6,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 var mountModule = require("./Modules/MountModule");
+var errorModule = require("./Modules/ErrorModule");
 
 var nylex = {
 
@@ -15,7 +16,16 @@ var nylex = {
     },
 
     mount : function mount(path, controller) {
+        controller.setApp(app);
         mountModule.mount(path, controller, app);
+    },
+
+    before : function before (path, beforeFunction) {
+        app.all(path, beforeFunction);
+    },
+
+    mountError : function error(errorController) {
+        errorModule.mountError(errorController, app);
     },
 
     throwError : function throwError(errorCode) {

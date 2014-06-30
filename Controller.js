@@ -4,6 +4,7 @@ var Controller = function (){
     this.posts = {};
     this.puts = {};
     this.deletes = {};
+    this.app;
 
     //GETS
     this.getAllGets = function () {
@@ -20,6 +21,10 @@ var Controller = function (){
 
     this.getAllDeletes = function () {
         return this.deletes;
+    }
+
+    this.setApp = function(app) {
+        this.app = app;
     }
 
     this.get = function (path, getFunction) {
