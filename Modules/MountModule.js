@@ -1,35 +1,17 @@
 var mountModule = {
 
     mount : function(path, controller, app) {
-        mountGets(path, controller.getAllGets(), app);
-        mountPosts(path, controller.getAllPosts(), app);
-        mountPuts(path, controller.getAllPuts(), app);
-        mountDeletes(path, controller.getAllDeletes(), app);
+        mountAll(path, controller.getAllGets(), "get", app);
+        mountAll(path, controller.getAllPosts(), "post", app);
+        mountAll(path, controller.getAllPuts(), "put", app);
+        mountAll(path, controller.getAllDeletes(), "delete", app);
     }
 
 }
 
-function mountGets(path, gets, app) {
-    for (var getPath in gets) {
-        mount("get", path, getPath, gets[getPath], app);
-    }
-}
-
-function mountPosts(path, posts, app) {
-    for (var postPath in posts) {
-        mount("post", path, postPath, posts[postPath], app);
-    }
-}
-
-function mountPuts(path, puts, app) {
-    for (var putPath in puts) {
-        mount("put", path, putPath, puts[putPath], app);
-    }
-}
-
-function mountDeletes(path, deletes, app) {
-    for (var deletePath in deletes) {
-        mount("delete", path, deletePath, deletes[deletePath], app);
+function mountAll(path, functions, method, app) {
+    for (var controllerPath in functions) {
+        mount(method, path, controllerPath, functions[controllerPath], app);
     }
 }
 
