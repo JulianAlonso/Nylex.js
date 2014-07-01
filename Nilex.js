@@ -16,7 +16,7 @@ var nylex = {
     },
 
     mount : function mount(path, controller) {
-        controller.setApp(app);
+        controller.setApp(this);
         mountModule.mount(path, controller, app);
     },
 

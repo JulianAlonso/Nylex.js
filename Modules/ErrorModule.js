@@ -23,7 +23,7 @@ function mountError(errorController, app) {
 
 
 function throwError(code) {
-    var errror = new Error();
+    var error = new Error();
     error.code = code;
     throw error;
     return;
