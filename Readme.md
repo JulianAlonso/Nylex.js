@@ -45,6 +45,9 @@ Node.js framework to build Restful APIs, Angular.js pages...
   To run the example you need to be root, if you want you can change the port defined in index.js
 
 
+## License 
+  
+  MIT
 
 
 
