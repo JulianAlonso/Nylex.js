@@ -33,7 +33,7 @@ var nylex = {
     },
 
     static : function set(pathName, folderPath) {
-        app.use(folderPath, express.static(pathName));
+        app.use(pathName, express.static(folderPath));
     }
 
 }
